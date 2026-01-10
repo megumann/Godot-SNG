@@ -51,18 +51,39 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
+offset_left = -210.0
 offset_top = -100.0
-offset_right = 100.0
+offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+tooltip_text = "Click to Play!"
 theme_override_fonts/font = ExtResource("2_6xhuc")
 theme_override_font_sizes/font_size = 64
 shortcut = SubResource("Shortcut_dg4to")
+shortcut_in_tooltip = false
 text = "Start"
+
+[node name="StopButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -100.0
+offset_right = 210.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Done for now."
+theme_override_fonts/font = ExtResource("2_6xhuc")
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_dg4to")
+shortcut_in_tooltip = false
+text = "Quit"
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
 [connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="pressed" from="StopButton" to="." method="OnStopButtonPressed"]

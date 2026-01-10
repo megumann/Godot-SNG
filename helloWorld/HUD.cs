@@ -45,6 +45,12 @@ public partial class HUD : CanvasLayer
 		message.Hide();
 	}
 	
+	private void OnStopButtonPressed()
+	{
+		GetNode<Button>("StopButton").Hide();
+		GetTree().Quit();
+	}
+	
 	private void OnMessageTimerTimeout()
 	{
 		GetNode<Label>("Message").Hide();
