@@ -29,6 +29,8 @@ public partial class HUD : CanvasLayer
 		
 		await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
 		GetNode<Button>("StartButton").Show();
+		GetNode<Button>("StopButton").Show();
+		
 	}
 	
 	public void UpdateScore(int score)
@@ -41,13 +43,19 @@ public partial class HUD : CanvasLayer
 		var message = GetNode<Label>("Message");
 		ShowMessage("Dodge the Creeps!");
 		GetNode<Button>("StartButton").Hide();
+		GetNode<Button>("StopButton").Hide();
 		EmitSignal(SignalName.StartGame);
 		message.Hide();
 	}
 	
 	private void OnStopButtonPressed()
 	{
-		GetNode<Button>("StopButton").Hide();
+		var message = GetNode<Label>("Message");
+		ShowMessage("Thanks for Playing!");
+		//GetNode<Button>("StopButton").Hide();
+		//GetNode<Button>("StartButton").Hide();
+		
+		
 		GetTree().Quit();
 	}
 	
