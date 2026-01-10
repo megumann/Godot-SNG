@@ -8,6 +8,7 @@ Project consists of (potentially or will)...
 * Going through this, you will see a few examples of my coding and development skills
 * Honestly, some of it might contain memes.
 * Used with the Godot code editor.
+* Follow this link for [releases](https://github.com/megumann/Godot-SNG/releases) of my random projects.
 * Proceed at your own risk.
 ### Special Notes
 * Developed on Arch Linux, compatible with all platforms (except iOS).
