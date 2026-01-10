@@ -11,5 +11,6 @@ Project consists of (potentially or will)...
 * Proceed at your own risk.
 ### Special Notes
 * Developed on Arch Linux, compatible with all platforms (except iOS).
+* Releases are named by their week, year, and iteration. in the example `2w26a`, it is the 2nd week of 2026, and this is release a. 
 ### Developed as a Passion Project by...
 * Zander / megumann - Main Dev
