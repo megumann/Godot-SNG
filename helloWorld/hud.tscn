@@ -1,7 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://byuo1kch3rrda"]
+[gd_scene load_steps=9 format=3 uid="uid://byuo1kch3rrda"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_yw2y3"]
 [ext_resource type="FontFile" uid="uid://cwn538wflx2t0" path="res://fonts/Xolonium-Regular.ttf" id="2_6xhuc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljh3m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cbpn"]
+bg_color = Color(0.783523, 0.783523, 0.783523, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8byvc"]
+bg_color = Color(0.533037, 0.533037, 0.533037, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfwxx"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="InputEventAction" id="InputEventAction_blvtm"]
 action = &"StartGame()"
@@ -45,45 +68,58 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -210.0
-offset_top = -100.0
-offset_right = -10.0
-grow_horizontal = 2
-grow_vertical = 0
-tooltip_text = "Click to Play!"
-theme_override_fonts/font = ExtResource("2_6xhuc")
-theme_override_font_sizes/font_size = 64
-shortcut = SubResource("Shortcut_dg4to")
-shortcut_in_tooltip = false
-text = "Start"
-
-[node name="StopButton" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -100.0
-offset_right = 210.0
-grow_horizontal = 2
-grow_vertical = 0
-tooltip_text = "Done for now."
-theme_override_fonts/font = ExtResource("2_6xhuc")
-theme_override_font_sizes/font_size = 64
-shortcut = SubResource("Shortcut_dg4to")
-shortcut_in_tooltip = false
-text = "Quit"
-
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[connection signal="pressed" from="StartButton" to="." method="OnStartButtonPressed"]
-[connection signal="pressed" from="StopButton" to="." method="OnStopButtonPressed"]
+[node name="MainMenu" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -104.0
+offset_right = 156.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 17
+
+[node name="StartButton" type="Button" parent="MainMenu"]
+layout_mode = 2
+tooltip_text = "Click to Play!"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6xhuc")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ljh3m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4cbpn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8byvc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kfwxx")
+shortcut = SubResource("Shortcut_dg4to")
+shortcut_in_tooltip = false
+text = "Start"
+
+[node name="StopButton" type="Button" parent="MainMenu"]
+layout_mode = 2
+tooltip_text = "Done for now."
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6xhuc")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ljh3m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4cbpn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8byvc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kfwxx")
+shortcut = SubResource("Shortcut_dg4to")
+shortcut_in_tooltip = false
+text = "Quit"
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="OnStartButtonPressed"]
+[connection signal="pressed" from="MainMenu/StopButton" to="." method="OnStopButtonPressed"]
