@@ -103,3 +103,39 @@ public partial class Player : CharacterBody2D
 		}
 	}
 }
+
+/*
+Animation Naming Conventions:
+- Walking Animations:
+  - walk_up
+  - walk_down
+  - walk_left
+  - walk_right
+- Running Animations:
+  - run_up
+  - run_down
+  - run_left
+  - run_right
+- Idle Animations:
+  - idle_up
+  - idle_down
+  - idle_left
+  - idle_right
+- Attack Animations:
+  - attack_up
+  - attack_down
+  - attack_left
+  - attack_right
+
+To Do:
+- Implement health and damage system (not started, low priority)
+- Add sound effects for walking, running, and attacking (not started, low priority)
+- Implement collision detection with environment (not started, medium priority)
+- Implement animations for taking damage and dying (not started, low priority)
+- Create death flags and respawn mechanics (not started, low priority)
+- Create main menu and pause menu (not started, low priority)
+- Add collectible items and inventory system (not started, medium priority)
+- Create multiple stages/levels for demonstration purposes (not started, medium priority)
+- Add background music and ambient sounds (not started, low priority)
+- Further polish (not started, low priority)
+*/
