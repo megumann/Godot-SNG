@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Game (Flatpak)",
+            "type": "godot-mono",
+            "request": "launch",
+            "mode": "executable",
+            "executable": "/usr/bin/flatpak",
+            "executableArguments": [
+                "run",
+                "org.godotengine.GodotSharp",
+                "--path",
+                "${workspaceFolder}",
+                "--remote-debug",
+                "tcp://127.0.0.1:6007"
+            ]
+        },
+        {
+            "name": "Attach to Godot",
+            "type": "godot-mono",
+            "request": "attach",
+            "address": "localhost",
+            "port": 6007
+        }
+    ]
+}
