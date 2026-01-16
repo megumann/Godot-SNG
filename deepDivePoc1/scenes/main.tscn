@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://ditrnl6n5oc7t"]
+[gd_scene load_steps=8 format=4 uid="uid://ditrnl6n5oc7t"]
 
+[ext_resource type="PackedScene" uid="uid://cnqi8610xtml7" path="res://scenes/hud.tscn" id="1_2ypdq"]
 [ext_resource type="Texture2D" uid="uid://cjq2h0a2w88xj" path="res://art/All tiles v1.png" id="1_h3pym"]
 [ext_resource type="Texture2D" uid="uid://13igutl8vjak" path="res://art/All tiles v2.png" id="2_wldpc"]
 [ext_resource type="PackedScene" uid="uid://b6d1hnlwk2i7c" path="res://scenes/player.tscn" id="3_2gcjh"]
@@ -8620,5 +8621,7 @@ tile_set = SubResource("TileSet_1jeba")
 
 [node name="Player" parent="." instance=ExtResource("3_2gcjh")]
 position = Vector2(192, 80)
-Speed = 75
-runSpeed = 100
+Speed = 50
+RunSpeed = 100
+
+[node name="HUD" parent="." instance=ExtResource("1_2ypdq")]

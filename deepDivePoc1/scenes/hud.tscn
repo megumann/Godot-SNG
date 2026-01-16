@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnqi8610xtml7"]
+
+[ext_resource type="FontFile" uid="uid://x0rl6tepyhbp" path="res://art/font/8bitOperatorPlus-Regular.ttf" id="1_ntr6u"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ntr6u")
+theme_override_font_sizes/font_size = 5
+text = "Controls:
+WASD/Arrows to Move
+Space to Attack
+Shift to Sprint"
+horizontal_alignment = 1
+vertical_alignment = 1
