@@ -4,9 +4,9 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public int Speed { get; set; } = 100; // How fast the player will move in pixels/sec
+	public int Speed { get; set; } = 50; // How fast the player will move in pixels/sec
 	[Export]
-	public int RunSpeed { get; set; } = 200; // How fast the player will move in pixels/sec when running
+	public int RunSpeed { get; set; } = 100; // How fast the player will move in pixels/sec when running
 	[Export]
 	public int ExhaustSpeed { get; set; } = 25; // Speed of the player after depleting stamina.
 
@@ -45,6 +45,10 @@ public partial class Player : CharacterBody2D
         _staminaBar.Value = _displayedStamina;
         _staminaBar.Hide(); // Hide initially
 
+		// Connect animation finished signal to reset attack state
+		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animatedSprite2D.AnimationFinished += OnAnimationFinished;
+
 		GD.Print("If you see this message, the player script is initialized!");
 	}
 	
@@ -61,11 +65,12 @@ public partial class Player : CharacterBody2D
 			{
 				_isAttacking = true;
 				_stamina -= AttackStaminaCost;
-				_staminaCooldownTimer = 0f; // Start cooldown after attack
+				_staminaCooldownTimer = StaminaCooldown; // Start cooldown timer with duration
 				
-				// Update stamina bar immediately to show attack cost
+				// Update stamina bar and displayed stamina immediately to show attack cost
 				if (_staminaBar != null)
 				{
+					_displayedStamina = _stamina; // Update displayed stamina to match actual
 					_staminaBar.Value = _stamina;
 					_staminaBar.Show();
 				}
@@ -102,6 +107,11 @@ public partial class Player : CharacterBody2D
 		if (Input.IsActionPressed("walk_left")) velocity.X -= 1;
 		if (Input.IsActionPressed("walk_down")) velocity.Y += 1;
 		if (Input.IsActionPressed("walk_up")) velocity.Y -= 1;
+		if (Input.IsActionPressed("pause_menu"))
+		{
+			GD.Print("Pause menu triggered");
+			GetTree().Quit(); // Temporary exit for testing
+		}
 
 		// Check if player is moving
 		bool isMoving = velocity.Length() > 0;
@@ -156,9 +166,13 @@ public partial class Player : CharacterBody2D
 
 	private void OnAnimationFinished()
 	{
-		if (GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation.ToString().StartsWith("attack_", StringComparison.Ordinal))
+		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		GD.Print($"Animation finished: {animatedSprite2D.Animation}, IsExhausted: {_isExhausted}");
+		
+		if (animatedSprite2D.Animation.ToString().StartsWith("attack_", StringComparison.Ordinal))
 		{
 			_isAttacking = false;
+			GD.Print($"Attack animation ended. Current stamina: {_stamina}, IsExhausted: {_isExhausted}");
 		}
 	}
 

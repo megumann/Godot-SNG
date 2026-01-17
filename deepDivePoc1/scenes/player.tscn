@@ -1,10 +1,11 @@
-[gd_scene load_steps=138 format=3 uid="uid://b6d1hnlwk2i7c"]
+[gd_scene load_steps=139 format=3 uid="uid://b6d1hnlwk2i7c"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_is00w"]
 [ext_resource type="Texture2D" uid="uid://c4m6shfaewkm3" path="res://art/player/idle/Black Asha Idle 32x32.png" id="1_u6wk4"]
 [ext_resource type="Texture2D" uid="uid://vcq4j0rqv78r" path="res://art/player/walk/Black Asha Walk 32x32.png" id="2_5pcjh"]
 [ext_resource type="Texture2D" uid="uid://d4n3d8yohdlxp" path="res://art/player/attack/Black attack 1 48x48.png" id="2_y2hsq"]
 [ext_resource type="Texture2D" uid="uid://dm27aa4mm38w3" path="res://art/player/run/Black Asha Run 32x32.png" id="3_jhsag"]
+[ext_resource type="PackedScene" uid="uid://cnqi8610xtml7" path="res://scenes/hud.tscn" id="6_vcnos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asjsl"]
 size = Vector2(14, 6)
@@ -1018,6 +1019,8 @@ animation = &"attack_down"
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
+
+[node name="HUD" parent="Camera2D" instance=ExtResource("6_vcnos")]
 
 [node name="StaminaBar" type="ProgressBar" parent="."]
 offset_left = -12.0
