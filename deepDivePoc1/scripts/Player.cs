@@ -299,7 +299,7 @@ Animation Naming Conventions:
 To Do:
 - Implement health and damage system (not started, low priority)
 - Add sound effects for walking, running, and attacking (not started, low priority)
-- Implement collision detection with environment (not started, medium priority)
+- Implement collision detection with environment (Completed)
 - Implement animations for taking damage and dying (not started, low priority)
 - Create death flags and respawn mechanics (not started, low priority)
 - Create main menu and pause menu (not started, low priority)
@@ -307,4 +307,5 @@ To Do:
 - Create multiple stages/levels for demonstration purposes (not started, medium priority)
 - Add background music and ambient sounds (not started, low priority)
 - Further polish (not started, low priority)
+- Implement pokemon-style combat system where enemies will approach you and throw you into a separate battle screen (not started, medium priority)
 */

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://ditrnl6n5oc7t"]
+[gd_scene load_steps=10 format=4 uid="uid://ditrnl6n5oc7t"]
 
 [ext_resource type="Texture2D" uid="uid://cjq2h0a2w88xj" path="res://art/All tiles v1.png" id="1_h3pym"]
 [ext_resource type="Texture2D" uid="uid://13igutl8vjak" path="res://art/All tiles v2.png" id="2_wldpc"]
@@ -8608,6 +8608,21 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_ygnaw")
 sources/1 = SubResource("TileSetAtlasSource_k5yu4")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuy1l"]
+bg_color = Color(0.98, 0, 0.0163331, 0.588235)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pudmc"]
+bg_color = Color(0, 1, 0.883333, 0.588235)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yniqh"]
 size = Vector2(10, 6)
 
@@ -8634,6 +8649,18 @@ StaminaRegenRate = 10.0
 StaminaCooldown = 3.0
 LowStaminaThreshold = 40.0
 FlashSpeed = 12.0
+
+[node name="StaminaBar" type="ProgressBar" parent="Player"]
+z_index = 2
+offset_left = -12.0
+offset_top = 10.0
+offset_right = 12.0
+offset_bottom = 14.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xuy1l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pudmc")
+step = 1.0
+value = 60.0
+show_percentage = false
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 
